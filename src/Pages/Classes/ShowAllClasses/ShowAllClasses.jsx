@@ -1,5 +1,5 @@
 import SingleClass from "../SingleClass/SingleClass";
-import useClasses from "../../../Hooks/AllClasses/useClasses";
+import useClasses from "../../../Hooks/useClasses/useClasses";
 
 const ShowAllClasses = () => {
   const [classes] = useClasses();

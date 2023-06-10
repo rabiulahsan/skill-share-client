@@ -1,5 +1,5 @@
 import SectionTitle from "../../../Components/SectionTitle/SectionTitle";
-import useClasses from "../../../Hooks/AllClasses/useClasses";
+import useClasses from "../../../Hooks/useClasses/useClasses";
 import SingleClass from "../../Classes/SingleClass/SingleClass";
 
 const PopularClass = () => {
