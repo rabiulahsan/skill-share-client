@@ -1,6 +1,14 @@
 import ActiveLink from "../../Components/ActiveLink/ActiveLink";
+import useAuth from "../../Hooks/useAuth/useAuth";
 
 const Navbar = () => {
+  const { user, logOut } = useAuth();
+
+  const handleLogout = () => {
+    logOut()
+      .then()
+      .catch((error) => console.log(error));
+  };
   return (
     <div className="flex justify-between items-center px-[8%] py-[1%] bg-sky-100 sticky top-0 z-10">
       <p className="text-blue-700 font-bold text-3xl">Skill Builder</p>
@@ -21,13 +29,15 @@ const Navbar = () => {
         </ul>
       </div>
       <div className="">
-        <button className="blue-btn mr-5">
-          <ActiveLink to="/login">login</ActiveLink>
-        </button>
-
-        <button className="blue-btn">
-          <ActiveLink to="/signup">Signup</ActiveLink>
-        </button>
+        {user ? (
+          <button className="blue-btn mr-5">
+            <ActiveLink to="/login">Logout</ActiveLink>
+          </button>
+        ) : (
+          <button onClick={handleLogout()} className="blue-btn mr-5">
+            <ActiveLink to="/login">Login</ActiveLink>
+          </button>
+        )}
       </div>
     </div>
   );

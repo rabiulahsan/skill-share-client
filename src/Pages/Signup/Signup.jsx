@@ -132,9 +132,9 @@ const Signup = () => {
         </div> */}
           <p className="flex flex-col text-center text-gray-500">
             Don&apos;t have an account?
-            <Link to={"/signup"}>
+            <Link to={"/login"}>
               <span className="text-blue-800 font-semibold hover:underline">
-                Register
+                Login
               </span>
             </Link>
           </p>
