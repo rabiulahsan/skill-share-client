@@ -31,7 +31,7 @@ const Banner = () => {
                 better and get a good job. <br /> Just stay with us.
               </p>
               <div className="flex">
-                <button className="blue-btn">Enroll</button>
+                <button className="blue-btn hover:bg-blue-800">Enroll</button>
               </div>
             </div>
             <img className="h-[500px] my-[5%]" src={slide1} alt="" />
@@ -50,7 +50,7 @@ const Banner = () => {
                 better and get a good job. <br /> Just stay with us.
               </p>
               <div className="flex">
-                <button className="blue-btn">Enroll</button>
+                <button className="blue-btn hover:bg-blue-800">Enroll</button>
               </div>
             </div>
             <img className="h-[500px] my-[5%]" src={slide2} alt="" />
@@ -70,7 +70,7 @@ const Banner = () => {
                 better and get a good job. <br /> Just stay with us.
               </p>
               <div className="flex">
-                <button className="blue-btn">Enroll</button>
+                <button className="blue-btn hover:bg-blue-800">Enroll</button>
               </div>
             </div>
             <img className="h-[500px] my-[5%]" src={slide3} alt="" />
