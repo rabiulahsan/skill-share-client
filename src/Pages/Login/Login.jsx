@@ -35,7 +35,7 @@ const Login = () => {
   };
   return (
     <div className="flex justify-center items-center bg-[#ebeaf8] h-[710px]">
-      <div className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4 w-1/4 h-[516px]">
+      <div className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4 w-1/4 ">
         <form onSubmit={handleLogin} className=" ">
           <div className="mb-4">
             <label className="block text-gray-700 text-sm font-bold mb-2">
@@ -64,12 +64,8 @@ const Login = () => {
             <p>{logInError}</p>
           </div>
 
-          <div className="cursor-pointer text-center bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
-            <input
-              className=" cursor-pointer btn btn-primary"
-              type="submit"
-              value="Login"
-            />
+          <div className="cursor-pointer text-center bg-blue-500 hover:bg-blue-700 text-white font-semibold py-3  rounded focus:outline-none focus:shadow-outline">
+            <input className=" cursor-pointer " type="submit" value="Login" />
           </div>
         </form>
         <p className="text-center text-gray-400 my-5">or</p>

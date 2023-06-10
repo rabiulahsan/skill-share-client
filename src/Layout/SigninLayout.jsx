@@ -1,7 +1,9 @@
+import Signup from "../Pages/Signup/Signup";
+
 const SigninLayout = () => {
   return (
     <div>
-      <p>Signin</p>
+      <Signup></Signup>
     </div>
   );
 };
