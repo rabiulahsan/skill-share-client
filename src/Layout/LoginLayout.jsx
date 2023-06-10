@@ -1,7 +1,9 @@
+import Login from "../Pages/Login/Login";
+
 const LoginLayout = () => {
   return (
     <div>
-      <p>Login</p>
+      <Login></Login>
     </div>
   );
 };
