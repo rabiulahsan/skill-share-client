@@ -28,7 +28,7 @@ const Navbar = () => {
           </li>
         </ul>
       </div>
-      <div className="">
+      <div className=" flex gap-x-4">
         {user ? (
           <button className="blue-btn mr-5">
             <ActiveLink to="/login">Logout</ActiveLink>
@@ -38,6 +38,18 @@ const Navbar = () => {
             <ActiveLink to="/login">Login</ActiveLink>
           </button>
         )}
+
+        {user &&
+          (user?.photoURL ? (
+            <img
+              className="mx-auto h-[40px] text-blue-600 text-xl  font-bold"
+              src={user?.photoURL}
+              title={user?.displayName}
+              alt="Profile"
+            />
+          ) : (
+            <span></span>
+          ))}
       </div>
     </div>
   );

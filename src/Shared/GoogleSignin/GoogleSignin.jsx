@@ -1,9 +1,12 @@
 import { FcGoogle } from "react-icons/fc";
 import useAuth from "../../Hooks/useAuth/useAuth";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 const GoogleSignin = () => {
   const { user, googleLogin } = useAuth();
   const navigate = useNavigate();
+  const location = useLocation();
+
+  const from = location.state?.from?.pathname || "/";
 
   const handleGoogleSignIn = () => {
     if (user) {
@@ -12,9 +15,9 @@ const GoogleSignin = () => {
     } else {
       googleLogin()
         .then((result) => {
-          const user = result.user;
-          console.log(user);
-          navigate("/home");
+          const loggedUser = result.user;
+          console.log(loggedUser);
+          navigate(from, { replace: true });
         })
         .catch((error) => {
           console.error(error);

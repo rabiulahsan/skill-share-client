@@ -2,6 +2,7 @@ import { useForm } from "react-hook-form";
 import { Link, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 import useAuth from "../../Hooks/useAuth/useAuth";
+import GoogleSignin from "../../Shared/GoogleSignin/GoogleSignin";
 
 const Signup = () => {
   const {
@@ -127,9 +128,9 @@ const Signup = () => {
             </div>
           </form>
           <p className="text-center text-gray-600 my-2">or</p>
-          {/* <div className="my-5 mb-10">
-          <GoogleSignIn></GoogleSignIn>
-        </div> */}
+          <div className="my-5">
+            <GoogleSignin></GoogleSignin>
+          </div>
           <p className="flex flex-col text-center text-gray-500">
             Don&apos;t have an account?
             <Link to={"/login"}>
