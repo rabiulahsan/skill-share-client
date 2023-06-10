@@ -25,7 +25,7 @@ const Banner = () => {
                 <span className="text-blue-600 ">Quality Education</span> is Now
                 More <span className="text-blue-600 ">Easy</span>{" "}
               </p>
-              <p className="text-[#757575]">
+              <p className="text-[#757575] mb-5">
                 We are providing all your important skils with latest
                 technologies. <br /> That will help you to improve your skill
                 better and get a good job. <br /> Just stay with us.
@@ -44,7 +44,7 @@ const Banner = () => {
                 We <span className="text-blue-600 ">Innovate</span> <br />{" "}
                 Learning Processes
               </p>
-              <p className="text-[#757575]">
+              <p className="text-[#757575] mb-5">
                 We are providing all your important skils with latest
                 technologies. <br /> That will help you to improve your skill
                 better and get a good job. <br /> Just stay with us.
@@ -64,7 +64,7 @@ const Banner = () => {
                 <span className="text-blue-600 ">Skills</span> Get the <br />{" "}
                 <span className="text-blue-600 ">Dream Job</span>{" "}
               </p>
-              <p className="text-[#757575]">
+              <p className="text-[#757575] mb-5">
                 We are providing all your important skils with latest
                 technologies. <br /> That will help you to improve your skill
                 better and get a good job. <br /> Just stay with us.

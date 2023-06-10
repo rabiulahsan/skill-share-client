@@ -1,0 +1,71 @@
+ [
+      {
+        "image": "https://img.freepik.com/free-vector/programmer-concept-illustration_114360-2417.jpg?w=2000",
+        "class_name": "Introduction to Programming",
+        "ins_name": "John Smith",
+        "ins_email": "",
+        "available_seats": 15,
+        "price": 62.50,
+        "status": "approved",
+        "trending": true,
+        "ratings":5
+      },
+      {
+        "image": "https://img.freepik.com/free-vector/web-developers-courses-computer-programming-web-design-script-coding-study-computer-science-student-learning-interface-structure-components_335657-2542.jpg?w=2000",
+        "class_name": "Web Development Fundamentals",
+        "ins_name": "Sarah Johnson",
+        "ins_email": "",
+        "available_seats": 10,
+        "price": 85.75,
+        "status": "approved",
+        "trending": false,
+        "ratings":5
+      },
+     
+      {
+        "image": "https://static.vecteezy.com/system/resources/previews/005/084/689/original/graphic-designer-learning-program-software-painting-on-computer-free-vector.jpg",
+        "class_name": "Graphic Design Mastery",
+        "ins_name": "Emily Davis",
+        "ins_email": "",
+        "available_seats": 12,
+        "price": 71.99,
+        "status": "approved",
+        "trending": false,
+        "ratings":4
+      },
+      {
+        "image": "https://static.vecteezy.com/system/resources/thumbnails/003/216/680/small/film-video-production-concept-with-team-people-and-camera-editing-free-vector.jpg",
+        "class_name": "Video Editing Techniques",
+        "ins_name": "Alex Thompson",
+        "ins_email": "",
+        "available_seats": 10,
+        "price": 54.99,
+        "status": "approved",
+        "trending": true,
+        "ratings":5
+      },
+      {
+        "image": "https://static.vecteezy.com/system/resources/previews/001/824/448/original/illustration-camera-people-take-picture-with-camera-video-and-photo-sharing-on-social-media-photography-for-posting-designed-for-landing-page-web-banner-mobile-template-flyer-poster-free-vector.jpg",
+        "class_name": "Photography Fundamentals",
+        "ins_name": "Jessica Anderson",
+        "ins_email": "",
+        "available_seats": 8,
+        "price": 79.99,
+        "status": "approved",
+        "trending": false,
+        "ratings":5
+      },
+      {
+        "image": "https://img.freepik.com/free-vector/animation-motion-concept-illustration_114360-2549.jpg?w=2000",
+        "class_name": "Animation for Beginners",
+        "ins_name": "David Wilson",
+        "ins_email": "",
+        "available_seats": 12,
+        "price": 93.50,
+        "status": "approved",
+        "trending": true,
+        "ratings":4
+      }
+    ]
+  
+  

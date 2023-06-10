@@ -1,0 +1,46 @@
+ [
+      {
+        "name": "John Doe",
+        "email": "john.doe@example.com",
+        "image": "",
+        "role": "instructor",
+        "classes": []
+      },
+      {
+        "name": "Jane Smith",
+        "email": "jane.smith@example.com",
+        "image": "",
+        "role": "instructor",
+        "classes": []
+      },
+      {
+        "name": "Michael Johnson",
+        "email": "michael.johnson@example.com",
+        "image": "",
+        "role": "instructor",
+        "classes": []
+      },
+      {
+        "name": "Emily Davis",
+        "email": "emily.davis@example.com",
+        "image": "",
+        "role": "instructor",
+        "classes": []
+      },
+      {
+        "name": "Robert Wilson",
+        "email": "robert.wilson@example.com",
+        "image": "",
+        "role": "instructor",
+        "classes": []
+      },
+      {
+        "name": "Sarah Thompson",
+        "email": "sarah.thompson@example.com",
+        "image": "",
+        "role": "instructor",
+        "classes": []
+      }
+    ]
+  
+  
