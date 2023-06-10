@@ -5,7 +5,7 @@ const SingleClass = ({ cls }) => {
   const { class_name, ins_name, available_seats, price, image, ratings } = cls;
 
   return (
-    <div className="bg-white p-5 rounded-md">
+    <div className="bg-white p-5 rounded-md hover:scale-110 duration-500">
       <img
         className=" mx-auto w-full h-[220px] rounded-md"
         src={image}
@@ -19,14 +19,14 @@ const SingleClass = ({ cls }) => {
       <div className="flex justify-between items-center py-4">
         <p className="  flex items-center text-[#757575] font-bold">
           {" "}
-          <span className="bg-red-100 text-red-400 mr-1 p-1 rounded-[50%]">
+          <span className="bg-sky-100 text-blue-400 mr-1 p-1 rounded-[50%]">
             <AiOutlineDollar></AiOutlineDollar>
           </span>
           ${price}
         </p>
         <p className="  flex pr-[40%] items-center text-[#757575] font-bold">
           {" "}
-          <span className="bg-red-100 text-red-400 mr-1 p-1 rounded-[50%]">
+          <span className="bg-sky-100 text-blue-400 mr-1 p-1 rounded-[50%]">
             <AiFillStar></AiFillStar>
           </span>
           {ratings}
