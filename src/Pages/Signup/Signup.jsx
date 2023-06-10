@@ -1,109 +1,146 @@
-import { useState } from "react";
+import { useForm } from "react-hook-form";
 import { Link, useNavigate } from "react-router-dom";
+import Swal from "sweetalert2";
 import useAuth from "../../Hooks/useAuth/useAuth";
-import { updateProfile } from "firebase/auth";
 
 const Signup = () => {
-  const { createUser, logOut } = useAuth();
-  const [signUpError, setSignUpError] = useState("");
+  const {
+    register,
+    handleSubmit,
+    reset,
+    formState: { errors },
+  } = useForm();
+  const { createUser, updateUserProfile } = useAuth();
   const navigate = useNavigate();
 
-  const handleSignUp = (event) => {
-    event.preventDefault();
-    const form = event.target;
-    const name = form.name.value;
-    const email = form.email.value;
-    const password = form.password.value;
-    console.log(name, email, password);
-
-    createUser(email, password)
-      .then((result) => {
-        const user = result.user;
-        console.log(user);
-        profileUpdate(result.user, name);
-        navigate("/");
-        logOut()
-          .then()
-          .catch((error) => console.log(error));
-      })
-      .catch((error) => {
-        console.log(error.message);
-        setSignUpError(error.message);
-      });
-  };
-
-  //update user
-  const profileUpdate = (loggedUser, userName) => {
-    updateProfile(loggedUser, {
-      displayName: userName,
-    })
-      .then(() => {})
-      .catch((error) => {
-        console.error(error);
-      });
+  const onSubmit = (data) => {
+    createUser(data.email, data.password).then((result) => {
+      const loggedUser = result.user;
+      console.log(loggedUser);
+      updateUserProfile(data.name, data.photoURL)
+        .then(() => {
+          reset();
+          Swal.fire({
+            position: "top-end",
+            icon: "success",
+            title: "User created successfully.",
+            showConfirmButton: false,
+            timer: 1500,
+          });
+          navigate("/");
+        })
+        .catch((error) => console.log(error));
+    });
   };
 
   return (
-    <div className="flex justify-center items-center bg-[#ebeaf8] h-[710px]">
-      <div className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4 w-1/4  ">
-        <form onSubmit={handleSignUp} className="">
-          <div className="mb-4">
-            <label className="block text-gray-700 text-sm font-bold mb-2">
-              Username
-            </label>
-            <input
-              className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-              type="text"
-              name="name"
-              placeholder="Username"
-            ></input>
-          </div>
-          <div className="mb-6">
-            <label className="block text-gray-700 text-sm font-bold mb-2">
-              E-mail
-            </label>
-            <input
-              className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-              type="email"
-              name="email"
-              placeholder="E-mail"
-            ></input>
-          </div>
-          <div className="mb-4">
-            <label className="block text-gray-700 text-sm font-bold mb-2">
-              Password
-            </label>
-            <input
-              className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline"
-              type="password"
-              name="password"
-              placeholder="Password"
-            ></input>
-          </div>
+    <>
+      <div className="flex justify-center items-center bg-[#ebeaf8] h-[710px]">
+        <div className="card bg-white shadow-md rounded px-10 pt-8 pb-8 mb-4 w-1/4">
+          <form onSubmit={handleSubmit(onSubmit)} className="">
+            <div className="form-control">
+              <label className="label block text-gray-700 text-sm font-bold">
+                <span className="label-text">Name</span>
+              </label>
+              <input
+                type="text"
+                {...register("name", { required: true })}
+                name="name"
+                placeholder="Name"
+                className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight input input-bordered focus:outline-none focus:shadow-outline"
+              />
+              {errors.name && (
+                <span className="text-red-600">Name is required</span>
+              )}
+            </div>
 
-          <div className="text-red-400 mb-6 text-xs">
-            <p>{signUpError}</p>
-          </div>
+            <div className="form-control">
+              <label className="label block text-gray-700 text-sm font-bold">
+                <span className="label-text">Photo URL</span>
+              </label>
+              <input
+                type="text"
+                {...register("photoURL", { required: true })}
+                placeholder="Photo URL"
+                className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight input input-bordered focus:outline-none focus:shadow-outline"
+              />
+              {errors.photoURL && (
+                <span className="text-red-600">Photo URL is required</span>
+              )}
+            </div>
 
-          <div className="cursor-pointer text-center bg-blue-500 hover:bg-blue-700 text-white font-semibold py-3  rounded focus:outline-none focus:shadow-outline">
-            <input className=" cursor-pointer" type="submit" value="Signup" />
-          </div>
-        </form>
-        <p className="text-center text-gray-400 my-5">or</p>
-        {/* <div className="my-5 mb-10">
-            <GoogleSignIn></GoogleSignIn>
-          </div> */}
+            <div className="form-control">
+              <label className="label block text-gray-700 text-sm font-bold">
+                <span className="label-text">Email</span>
+              </label>
+              <input
+                type="email"
+                {...register("email", { required: true })}
+                name="email"
+                placeholder="email"
+                className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight input input-bordered focus:outline-none focus:shadow-outline"
+              />
+              {errors.email && (
+                <span className="text-red-600">Email is required</span>
+              )}
+            </div>
 
-        <p className="flex flex-col text-center text-gray-500">
-          Already have an account?
-          <Link to={"/login"}>
-            <span className="text-blue-800 font-semibold hover:underline">
-              Login
-            </span>
-          </Link>
-        </p>
+            <div className="form-control">
+              <label className="label block text-gray-700 text-sm font-bold">
+                <span className="label-text">Password</span>
+              </label>
+              <input
+                type="password"
+                {...register("password", {
+                  required: true,
+                  minLength: 6,
+                  maxLength: 20,
+                  pattern: /(?=.*[A-Z])(?=.*[!@#$&*])(?=.*[0-9])(?=.*[a-z])/,
+                })}
+                placeholder="password"
+                className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight input input-bordered focus:outline-none focus:shadow-outline"
+              />
+              {errors.password?.type === "required" && (
+                <p className="text-red-600">Password is required</p>
+              )}
+              {errors.password?.type === "minLength" && (
+                <p className="text-red-600">Password must be 6 characters</p>
+              )}
+              {errors.password?.type === "maxLength" && (
+                <p className="text-red-600">
+                  Password must be less than 20 characters
+                </p>
+              )}
+              {errors.password?.type === "pattern" && (
+                <p className="text-red-600">
+                  Password must have one Uppercase one lower case, one number
+                  and one special character.
+                </p>
+              )}
+            </div>
+            <div className="form-control mt-6">
+              <input
+                className="cursor-pointer text-center bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+                type="submit"
+                value="Sign Up"
+              />
+            </div>
+          </form>
+          <p className="text-center text-gray-600 my-2">or</p>
+          {/* <div className="my-5 mb-10">
+          <GoogleSignIn></GoogleSignIn>
+        </div> */}
+          <p className="flex flex-col text-center text-gray-500">
+            Don&apos;t have an account?
+            <Link to={"/signup"}>
+              <span className="text-blue-800 font-semibold hover:underline">
+                Register
+              </span>
+            </Link>
+          </p>
+        </div>
       </div>
-    </div>
+    </>
   );
 };
 
