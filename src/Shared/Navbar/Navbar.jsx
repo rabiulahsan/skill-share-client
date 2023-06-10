@@ -2,7 +2,7 @@ import ActiveLink from "../../Components/ActiveLink/ActiveLink";
 
 const Navbar = () => {
   return (
-    <div className="flex justify-between items-center px-[8%] py-[1%] bg-sky-100 sticky top-0">
+    <div className="flex justify-between items-center px-[8%] py-[1%] bg-sky-100 sticky top-0 z-10">
       <p className="text-blue-700 font-bold text-3xl">Skill Builder</p>
       <div className=" ">
         <ul className="flex text-lg font-semibold ">

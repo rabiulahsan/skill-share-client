@@ -18,7 +18,7 @@
         "available_seats": 10,
         "price": 85.75,
         "status": "approved",
-        "trending": false,
+        "trending": true,
         "ratings":5
       },
      
@@ -30,7 +30,7 @@
         "available_seats": 12,
         "price": 71.99,
         "status": "approved",
-        "trending": false,
+        "trending": true,
         "ratings":4
       },
       {
@@ -52,7 +52,7 @@
         "available_seats": 8,
         "price": 79.99,
         "status": "approved",
-        "trending": false,
+        "trending": true,
         "ratings":5
       },
       {
