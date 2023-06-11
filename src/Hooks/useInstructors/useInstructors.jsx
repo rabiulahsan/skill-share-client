@@ -1,16 +1,16 @@
 import { useEffect, useState } from "react";
 
 const useInstructors = () => {
-  const [instructors, setInstructors] = useState([]);
-
+  const [users, setUsers] = useState([]);
   useEffect(() => {
-    fetch("/instructor.json")
+    fetch("http://localhost:5000/users")
       .then((res) => res.json())
       .then((data) => {
-        setInstructors(data);
+        setUsers(data);
       });
   }, []);
 
+  const instructors = users.filter((user) => user?.role === "instructor");
   return [instructors];
 };
 
