@@ -29,8 +29,8 @@ const LeftSideNavbar = () => {
       .catch((error) => console.log(error));
   };
   return (
-    <div>
-      <div className="bg-blue-950 h-[710px] w-full sticky top-0 ">
+    <div className="sticky top-0">
+      <div className="bg-blue-950 h-[710px] w-full  ">
         <div className="pb-8 pt-5">
           <ActiveDashboardLink to="/">
             <p className="text-3xl text-sky-300 font-bold text-center my-[2%]">
