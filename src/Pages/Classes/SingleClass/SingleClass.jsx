@@ -4,18 +4,25 @@ import useVerifyInstructor from "../../../Hooks/useVerifyInstructor/useVerifyIns
 import useVerifyAdmin from "../../../Hooks/useVerifyAdmin/useVerifyAdmin";
 import useAxiosSecure from "../../../Hooks/useAxiosSecure/useAxiosSecure";
 import Swal from "sweetalert2";
+import useAuth from "../../../Hooks/useAuth/useAuth";
 
 const SingleClass = ({ cls }) => {
   const { class_name, ins_name, available_seats, price, image, ratings, _id } =
     cls;
   const [isAdmin] = useVerifyAdmin();
   const [isInstructor] = useVerifyInstructor();
-
+  const { user } = useAuth();
   const [axiosSecure] = useAxiosSecure();
 
   //enroll button functionality
   const handleEnroll = (id) => {
-    const selectedClass = { class_name, price, image, clsId: id };
+    const selectedClass = {
+      class_name,
+      price,
+      image,
+      clsId: id,
+      emai: user?.email,
+    };
 
     axiosSecure
       .post("/selected", selectedClass)
