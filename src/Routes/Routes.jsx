@@ -9,6 +9,7 @@ import DasboardLayout from "../Layout/DasboardLayout";
 import Dashboard from "../Pages/Dashboard/Dashboard/Dashboard";
 import InstructorDashboard from "../Pages/Dashboard/InstructorDashboard/InstructorDashboard";
 import AdminDashboard from "../Pages/Dashboard/AdminDashboard/AdminDashboard";
+import PrivateRoute from "../Routes/PrivateRoute";
 
 export const router = createBrowserRouter([
   {
@@ -45,7 +46,11 @@ export const router = createBrowserRouter([
   //layout for dashboard
   {
     path: "/dashboard",
-    element: <DasboardLayout></DasboardLayout>,
+    element: (
+      <PrivateRoute>
+        <DasboardLayout></DasboardLayout>
+      </PrivateRoute>
+    ),
     children: [
       {
         path: "/dashboard",
