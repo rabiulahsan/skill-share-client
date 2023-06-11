@@ -37,4 +37,7 @@ export const router = createBrowserRouter([
     path: "/signup",
     element: <SigninLayout></SigninLayout>,
   },
+
+  //layout for dashboard
+  {},
 ]);
