@@ -1,4 +1,3 @@
-import { Link } from "react-router-dom";
 import useAuth from "../../Hooks/useAuth/useAuth";
 import { RxDashboard } from "react-icons/rx";
 import { BiAddToQueue } from "react-icons/bi";
@@ -43,7 +42,7 @@ const LeftSideNavbar = () => {
           <ul>
             {isAdmin ? (
               <>
-                {" "}
+                {/* for admin  */}{" "}
                 <li className="navlink hover:text-sky-300 ">
                   <ActiveDashboardLink to="/dashboard/admin">
                     <span className="flex dashboard-navlink">
@@ -86,6 +85,7 @@ const LeftSideNavbar = () => {
                 </li>
               </>
             ) : isInstructor ? (
+              // for instructor
               <>
                 {" "}
                 <li className="navlink hover:text-sky-300 ">
@@ -121,7 +121,7 @@ const LeftSideNavbar = () => {
               </>
             ) : (
               <>
-                {" "}
+                {/* for user  */}{" "}
                 <li className="navlink  hover:text-sky-300 ">
                   <ActiveDashboardLink to="/dashboard">
                     <span className="flex dashboard-navlink">
@@ -133,7 +133,7 @@ const LeftSideNavbar = () => {
                   </ActiveDashboardLink>
                 </li>
                 <li className="navlink hover:text-sky-300 ">
-                  <ActiveDashboardLink to="/">
+                  <ActiveDashboardLink to="/dashboard/selected-classes">
                     <span className="flex dashboard-navlink ">
                       <span>
                         <BiAddToQueue></BiAddToQueue>

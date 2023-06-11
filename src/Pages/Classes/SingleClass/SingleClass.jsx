@@ -2,11 +2,36 @@
 import { AiOutlineDollar, AiFillStar } from "react-icons/ai";
 import useVerifyInstructor from "../../../Hooks/useVerifyInstructor/useVerifyInstructor";
 import useVerifyAdmin from "../../../Hooks/useVerifyAdmin/useVerifyAdmin";
+import useAxiosSecure from "../../../Hooks/useAxiosSecure/useAxiosSecure";
+import Swal from "sweetalert2";
 
 const SingleClass = ({ cls }) => {
-  const { class_name, ins_name, available_seats, price, image, ratings } = cls;
+  const { class_name, ins_name, available_seats, price, image, ratings, _id } =
+    cls;
   const [isAdmin] = useVerifyAdmin();
   const [isInstructor] = useVerifyInstructor();
+
+  const [axiosSecure] = useAxiosSecure();
+
+  //enroll button functionality
+  const handleEnroll = (id) => {
+    const selectedClass = { class_name, price, image, clsId: id };
+
+    axiosSecure
+      .post("/selected", selectedClass)
+      .then((data) => {
+        if (data.data.insertedId) {
+          Swal.fire({
+            position: "top-end",
+            icon: "success",
+            title: "Course added successfully",
+            showConfirmButton: false,
+            timer: 1500,
+          });
+        }
+      })
+      .catch((err) => console.log(err));
+  };
   return (
     <div className="bg-white p-5 rounded-md hover:scale-110 duration-500">
       <img
@@ -36,6 +61,7 @@ const SingleClass = ({ cls }) => {
         </p>
       </div>
       <button
+        onClick={() => handleEnroll(_id)}
         className={`${
           isAdmin || isInstructor
             ? "disabled cursor-default btn"
