@@ -67,16 +67,31 @@ const SingleClass = ({ cls }) => {
           {ratings}
         </p>
       </div>
-      <button
-        onClick={() => handleEnroll(_id)}
-        className={`${
-          isAdmin || isInstructor
-            ? "disabled cursor-default btn"
-            : "blue-btn hover:bg-blue-800 mb-0"
-        }`}
-      >
-        Enroll
-      </button>
+
+      {isAdmin || isInstructor ? (
+        <button
+          disabled
+          onClick={() => handleEnroll(_id)}
+          className={`${
+            isAdmin || isInstructor
+              ? "disabled cursor-default btn"
+              : "blue-btn hover:bg-blue-800 mb-0"
+          }`}
+        >
+          Enroll
+        </button>
+      ) : (
+        <button
+          onClick={() => handleEnroll(_id)}
+          className={`${
+            isAdmin || isInstructor
+              ? "disabled cursor-default btn"
+              : "blue-btn hover:bg-blue-800 mb-0"
+          }`}
+        >
+          Enroll
+        </button>
+      )}
     </div>
   );
 };

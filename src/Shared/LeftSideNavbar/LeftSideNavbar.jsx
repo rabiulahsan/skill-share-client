@@ -99,7 +99,7 @@ const LeftSideNavbar = () => {
                   </ActiveDashboardLink>
                 </li>
                 <li className="navlink hover:text-sky-300 ">
-                  <ActiveDashboardLink to="/">
+                  <ActiveDashboardLink to="dashboard/addclass">
                     <span className="flex dashboard-navlink ">
                       <span>
                         <AiOutlineAppstoreAdd></AiOutlineAppstoreAdd>
@@ -109,7 +109,7 @@ const LeftSideNavbar = () => {
                   </ActiveDashboardLink>
                 </li>
                 <li className="navlink hover:text-sky-300 ">
-                  <ActiveDashboardLink to="">
+                  <ActiveDashboardLink to="dashboard/myclasses">
                     <span className="flex dashboard-navlink ">
                       <span>
                         <MdClass></MdClass>
