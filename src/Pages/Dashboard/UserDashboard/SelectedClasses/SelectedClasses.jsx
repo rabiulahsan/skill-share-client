@@ -10,7 +10,7 @@ const SelectedClasses = () => {
   const { data: selectedClasses = [], refetch } = useQuery(
     ["selected", user?.email],
     async () => {
-      const res = await axiosSecure.get("/selected");
+      const res = await axiosSecure.get(`/selected?email=${user?.email}`);
       return res.data;
     }
   );

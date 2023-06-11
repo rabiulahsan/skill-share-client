@@ -21,7 +21,7 @@ const SingleClass = ({ cls }) => {
       price,
       image,
       clsId: id,
-      emai: user?.email,
+      email: user?.email,
     };
 
     axiosSecure
