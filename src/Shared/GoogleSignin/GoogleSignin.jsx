@@ -15,9 +15,24 @@ const GoogleSignin = () => {
     } else {
       googleLogin()
         .then((result) => {
-          const loggedUser = result.user;
-          console.log(loggedUser);
-          navigate(from, { replace: true });
+          const loggedInUser = result.user;
+          console.log(loggedInUser);
+          const saveUser = {
+            name: loggedInUser.displayName,
+            email: loggedInUser.email,
+            role: "user",
+          };
+          fetch("http://localhost:5000/users", {
+            method: "POST",
+            headers: {
+              "content-type": "application/json",
+            },
+            body: JSON.stringify(saveUser),
+          })
+            .then((res) => res.json())
+            .then(() => {
+              navigate(from, { replace: true });
+            });
         })
         .catch((error) => {
           console.error(error);
