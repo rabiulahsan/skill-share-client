@@ -20,6 +20,9 @@ const LeftSideNavbar = () => {
   const [isAdmin] = useVerifyAdmin();
   const [isInstructor] = useVerifyInstructor();
 
+  console.log(isAdmin);
+  console.log(isInstructor);
+
   const handleLogOut = () => {
     logOut()
       .then()
@@ -41,7 +44,7 @@ const LeftSideNavbar = () => {
               <>
                 {" "}
                 <li className="navlink">
-                  <Link to="/dashboard/users">
+                  <Link to="/dashboard/admin">
                     <span className="flex dashboard-navlink">
                       <span>
                         <RxDashboard></RxDashboard>
@@ -85,7 +88,7 @@ const LeftSideNavbar = () => {
               <>
                 {" "}
                 <li className="navlink">
-                  <Link to="/dashboard/users">
+                  <Link to="/dashboard/instructor">
                     <span className="flex dashboard-navlink">
                       <span>
                         <RxDashboard></RxDashboard>
@@ -119,7 +122,7 @@ const LeftSideNavbar = () => {
               <>
                 {" "}
                 <li className="navlink">
-                  <Link to="/dashboard/users">
+                  <Link to="/dashboard">
                     <span className="flex dashboard-navlink">
                       <span>
                         <RxDashboard></RxDashboard>
@@ -162,6 +165,9 @@ const LeftSideNavbar = () => {
             )}
           </ul>
         </div>
+
+        {/* divider  */}
+        <div className="divider border-b"></div>
 
         {/* for all kind of users  */}
 

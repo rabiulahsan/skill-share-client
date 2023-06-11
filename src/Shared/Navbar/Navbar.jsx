@@ -1,9 +1,13 @@
 /* eslint-disable no-unused-vars */
 import ActiveLink from "../../Components/ActiveLink/ActiveLink";
 import useAuth from "../../Hooks/useAuth/useAuth";
+import useVerifyAdmin from "../../Hooks/useVerifyAdmin/useVerifyAdmin";
+import useVerifyInstructor from "../../Hooks/useVerifyInstructor/useVerifyInstructor";
 
 const Navbar = () => {
   const { user, logOut } = useAuth();
+  const [isAdmin] = useVerifyAdmin();
+  const [isInstructor] = useVerifyInstructor();
 
   // const handleLogout = () => {
   //   logOut()
@@ -25,7 +29,17 @@ const Navbar = () => {
             <ActiveLink to="/classes">Classes</ActiveLink>
           </li>
           <li className="mx-2 px-2 navlink-hover">
-            <ActiveLink to="/dashboard">Dasboard</ActiveLink>
+            <ActiveLink
+              to={`${
+                isAdmin
+                  ? "/dashboard/admin"
+                  : isInstructor
+                  ? "/dashboard/instructor"
+                  : "/dashboard"
+              }`}
+            >
+              Dasboard
+            </ActiveLink>
           </li>
         </ul>
       </div>
