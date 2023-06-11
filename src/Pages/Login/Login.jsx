@@ -71,7 +71,7 @@ const Login = () => {
             </div>
 
             <div className="form-control cursor-pointer text-center bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
-              <input className="" type="submit" value="Login" />
+              <input className=" cursor-pointer " type="submit" value="Login" />
             </div>
           </form>
           <p className="text-center text-gray-400 my-5">or</p>
