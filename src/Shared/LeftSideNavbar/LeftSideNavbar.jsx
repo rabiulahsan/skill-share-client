@@ -13,6 +13,7 @@ import { FiUsers } from "react-icons/fi";
 import { MdClass, MdOutlineLogout } from "react-icons/md";
 import useVerifyAdmin from "../../Hooks/useVerifyAdmin/useVerifyAdmin";
 import useVerifyInstructor from "../../Hooks/useVerifyInstructor/useVerifyInstructor";
+import ActiveDashboardLink from "../../Components/ActiveDashboardLink/ActiveDashboardLink";
 
 const LeftSideNavbar = () => {
   const { logOut } = useAuth();
@@ -32,134 +33,134 @@ const LeftSideNavbar = () => {
     <div>
       <div className="bg-blue-950 h-[710px] w-full sticky top-0 ">
         <div className="pb-8 pt-5">
-          <Link to="/">
+          <ActiveDashboardLink to="/">
             <p className="text-3xl text-sky-300 font-bold text-center my-[2%]">
               Skill Builder
             </p>
-          </Link>
+          </ActiveDashboardLink>
         </div>
         <div className=" text-white relative">
           <ul>
             {isAdmin ? (
               <>
                 {" "}
-                <li className="navlink">
-                  <Link to="/dashboard/admin">
+                <li className="navlink hover:text-sky-300 ">
+                  <ActiveDashboardLink to="/dashboard/admin">
                     <span className="flex dashboard-navlink">
                       <span>
                         <RxDashboard></RxDashboard>
                       </span>
                       <span>Dashboard</span>
                     </span>
-                  </Link>
+                  </ActiveDashboardLink>
                 </li>
-                <li className="navlink">
-                  <Link to="/">
+                <li className="navlink hover:text-sky-300 ">
+                  <ActiveDashboardLink to="/">
                     <span className="flex dashboard-navlink ">
                       <span>
                         <GiTeacher></GiTeacher>
                       </span>
                       Instructors
                     </span>
-                  </Link>
+                  </ActiveDashboardLink>
                 </li>
-                <li className="navlink">
-                  <Link to="">
+                <li className="navlink hover:text-sky-300 ">
+                  <ActiveDashboardLink to="">
                     <span className="flex dashboard-navlink ">
                       <span>
                         <MdClass></MdClass>
                       </span>
                       Classes
                     </span>
-                  </Link>
+                  </ActiveDashboardLink>
                 </li>
-                <li className="navlink">
-                  <Link to="">
+                <li className="navlink hover:text-sky-300 ">
+                  <ActiveDashboardLink to="">
                     <span className="flex items-center px-6 py-3  text-lg gap-x-2 ">
                       <span>
                         <FiUsers></FiUsers>
                       </span>
                       users
                     </span>
-                  </Link>
+                  </ActiveDashboardLink>
                 </li>
               </>
             ) : isInstructor ? (
               <>
                 {" "}
-                <li className="navlink">
-                  <Link to="/dashboard/instructor">
+                <li className="navlink hover:text-sky-300 ">
+                  <ActiveDashboardLink to="/dashboard/instructor">
                     <span className="flex dashboard-navlink">
                       <span>
                         <RxDashboard></RxDashboard>
                       </span>
                       <span>Dashboard</span>
                     </span>
-                  </Link>
+                  </ActiveDashboardLink>
                 </li>
-                <li className="navlink">
-                  <Link to="/">
+                <li className="navlink hover:text-sky-300 ">
+                  <ActiveDashboardLink to="/">
                     <span className="flex dashboard-navlink ">
                       <span>
                         <AiOutlineAppstoreAdd></AiOutlineAppstoreAdd>
                       </span>
                       Add Class
                     </span>
-                  </Link>
+                  </ActiveDashboardLink>
                 </li>
-                <li className="navlink">
-                  <Link to="">
+                <li className="navlink hover:text-sky-300 ">
+                  <ActiveDashboardLink to="">
                     <span className="flex dashboard-navlink ">
                       <span>
                         <MdClass></MdClass>
                       </span>
                       My Classes
                     </span>
-                  </Link>
+                  </ActiveDashboardLink>
                 </li>
               </>
             ) : (
               <>
                 {" "}
-                <li className="navlink">
-                  <Link to="/dashboard">
+                <li className="navlink  hover:text-sky-300 ">
+                  <ActiveDashboardLink to="/dashboard">
                     <span className="flex dashboard-navlink">
                       <span>
                         <RxDashboard></RxDashboard>
                       </span>
                       <span>Dashboard</span>
                     </span>
-                  </Link>
+                  </ActiveDashboardLink>
                 </li>
-                <li className="navlink">
-                  <Link to="/">
+                <li className="navlink hover:text-sky-300 ">
+                  <ActiveDashboardLink to="/">
                     <span className="flex dashboard-navlink ">
                       <span>
                         <BiAddToQueue></BiAddToQueue>
                       </span>
                       Selected Classes
                     </span>
-                  </Link>
+                  </ActiveDashboardLink>
                 </li>
-                <li className="navlink">
-                  <Link to="">
+                <li className="navlink hover:text-sky-300 ">
+                  <ActiveDashboardLink to="">
                     <span className="flex dashboard-navlink ">
                       <span>
                         <BsFillBookmarkCheckFill></BsFillBookmarkCheckFill>
                       </span>
                       Enrolled Classes
                     </span>
-                  </Link>
+                  </ActiveDashboardLink>
                 </li>
-                <li className="navlink">
-                  <Link to="">
+                <li className="navlink hover:text-sky-300 ">
+                  <ActiveDashboardLink to="">
                     <span className="flex items-center px-6 py-3  text-lg gap-x-2 ">
                       <span>
                         <AiOutlineHistory></AiOutlineHistory>
                       </span>
                       Payment History
                     </span>
-                  </Link>
+                  </ActiveDashboardLink>
                 </li>
               </>
             )}
@@ -174,44 +175,44 @@ const LeftSideNavbar = () => {
         <div className=" text-white w-full mt-[20%]">
           <ul>
             <li>
-              <Link to="/">
-                <span className="flex dashboard-navlink ">
+              <ActiveDashboardLink to="/">
+                <span className="flex dashboard-navlink hover:text-sky-300 ">
                   <span>
                     <AiFillHome></AiFillHome>
                   </span>
                   Home
                 </span>
-              </Link>
+              </ActiveDashboardLink>
             </li>
             <li>
-              <Link to="/instructors">
-                <span className="flex dashboard-navlink ">
+              <ActiveDashboardLink to="/instructors">
+                <span className="flex dashboard-navlink hover:text-sky-300 ">
                   <span>
                     <GiTeacher></GiTeacher>
                   </span>
                   Instructor
                 </span>
-              </Link>
+              </ActiveDashboardLink>
             </li>
             <li>
-              <Link to="/classes">
-                <span className="flex dashboard-navlink ">
+              <ActiveDashboardLink to="/classes">
+                <span className="flex dashboard-navlink hover:text-sky-300 ">
                   <span>
                     <MdClass></MdClass>
                   </span>
                   Clases
                 </span>
-              </Link>
+              </ActiveDashboardLink>
             </li>
             <li onClick={handleLogOut}>
-              <Link to="/">
-                <span className="flex items-center px-6 py-3  text-lg gap-x-2 ">
+              <ActiveDashboardLink to="/">
+                <span className="flex items-center px-6 py-3  text-lg gap-x-2 hover:text-sky-300 ">
                   <span>
                     <MdOutlineLogout></MdOutlineLogout>
                   </span>
                   Log Out
                 </span>
-              </Link>
+              </ActiveDashboardLink>
             </li>
           </ul>
         </div>

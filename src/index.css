@@ -19,6 +19,8 @@
 .dashboard-navlink{
     @apply items-center px-6 py-3  text-lg gap-x-2
 }
-.active-dashboard-navlink{
+.active-dashboard-navlink {
     @apply text-sky-300
 }
+
+

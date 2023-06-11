@@ -9,14 +9,16 @@ const Navbar = () => {
   const [isAdmin] = useVerifyAdmin();
   const [isInstructor] = useVerifyInstructor();
 
-  // const handleLogout = () => {
-  //   logOut()
-  //     .then((data) => console.log("out"))
-  //     .catch((error) => console.log(error));
-  // };
+  const handleLogout = () => {
+    logOut()
+      .then((data) => console.log("out"))
+      .catch((error) => console.log(error));
+  };
   return (
     <div className="flex justify-between items-center px-[8%] py-[1%] bg-sky-100 sticky top-0 z-10">
-      <p className="text-blue-700 font-bold text-3xl">Skill Builder</p>
+      <ActiveLink to="/">
+        <p className="text-blue-700 font-bold text-3xl">Skill Builder</p>
+      </ActiveLink>
       <div className=" ">
         <ul className="flex text-lg font-semibold ">
           <li className="mx-2 px-2 navlink-hover">
@@ -45,7 +47,7 @@ const Navbar = () => {
       </div>
       <div className=" flex gap-x-4">
         {user ? (
-          <button className="blue-btn mr-5">
+          <button onClick={handleLogout} className="blue-btn mr-5">
             <ActiveLink to="/login">Logout</ActiveLink>
           </button>
         ) : (
