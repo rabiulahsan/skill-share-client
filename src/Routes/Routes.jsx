@@ -10,6 +10,8 @@ import Dashboard from "../Pages/Dashboard/Dashboard/Dashboard";
 import InstructorDashboard from "../Pages/Dashboard/InstructorDashboard/InstructorDashboard";
 import AdminDashboard from "../Pages/Dashboard/AdminDashboard/AdminDashboard";
 import PrivateRoute from "../Routes/PrivateRoute";
+import InstructorRoute from "./InstructorRoute";
+import AdminRoute from "./AdminRoute";
 
 export const router = createBrowserRouter([
   {
@@ -59,11 +61,19 @@ export const router = createBrowserRouter([
 
       {
         path: "/dashboard/instructor",
-        element: <InstructorDashboard></InstructorDashboard>,
+        element: (
+          <InstructorRoute>
+            <InstructorDashboard></InstructorDashboard>
+          </InstructorRoute>
+        ),
       },
       {
         path: "/dashboard/admin",
-        element: <AdminDashboard></AdminDashboard>,
+        element: (
+          <AdminRoute>
+            <AdminDashboard></AdminDashboard>
+          </AdminRoute>
+        ),
       },
     ],
   },
