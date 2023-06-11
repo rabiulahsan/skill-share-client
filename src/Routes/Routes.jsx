@@ -5,6 +5,7 @@ import SigninLayout from "../Layout/SigninLayout";
 import Home from "../Pages/Home/Home/Home";
 import Instructors from "../Pages/Instructors/Instructors/Instructors";
 import Classes from "../Pages/Classes/Classes/Classes";
+import DasboardLayout from "../Layout/DasboardLayout";
 
 export const router = createBrowserRouter([
   {
@@ -39,5 +40,8 @@ export const router = createBrowserRouter([
   },
 
   //layout for dashboard
-  {},
+  {
+    path: "/dashboard",
+    element: <DasboardLayout></DasboardLayout>,
+  },
 ]);
