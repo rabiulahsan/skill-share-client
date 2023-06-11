@@ -1,9 +1,12 @@
 /* eslint-disable react/prop-types */
 import { AiOutlineDollar, AiFillStar } from "react-icons/ai";
+import useVerifyInstructor from "../../../Hooks/useVerifyInstructor/useVerifyInstructor";
+import useVerifyAdmin from "../../../Hooks/useVerifyAdmin/useVerifyAdmin";
 
 const SingleClass = ({ cls }) => {
   const { class_name, ins_name, available_seats, price, image, ratings } = cls;
-
+  const [isAdmin] = useVerifyAdmin();
+  const [isInstructor] = useVerifyInstructor();
   return (
     <div className="bg-white p-5 rounded-md hover:scale-110 duration-500">
       <img
@@ -32,7 +35,15 @@ const SingleClass = ({ cls }) => {
           {ratings}
         </p>
       </div>
-      <button className="blue-btn hover:bg-blue-800 mb-0 ">Enroll</button>
+      <button
+        className={`${
+          isAdmin || isInstructor
+            ? "disabled cursor-default btn"
+            : "blue-btn hover:bg-blue-800 mb-0"
+        }`}
+      >
+        Enroll
+      </button>
     </div>
   );
 };
