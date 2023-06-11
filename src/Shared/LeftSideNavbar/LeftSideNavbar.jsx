@@ -3,7 +3,11 @@ import useAuth from "../../Hooks/useAuth/useAuth";
 import { RxDashboard } from "react-icons/rx";
 import { BiAddToQueue } from "react-icons/bi";
 import { BsFillBookmarkCheckFill } from "react-icons/bs";
-import { AiOutlineHistory, AiFillHome } from "react-icons/ai";
+import {
+  AiOutlineHistory,
+  AiFillHome,
+  AiOutlineAppstoreAdd,
+} from "react-icons/ai";
 import { GiTeacher } from "react-icons/gi";
 import { FiUsers } from "react-icons/fi";
 import { MdClass, MdOutlineLogout } from "react-icons/md";
@@ -94,9 +98,9 @@ const LeftSideNavbar = () => {
                   <Link to="/">
                     <span className="flex dashboard-navlink ">
                       <span>
-                        <BiAddToQueue></BiAddToQueue>
+                        <AiOutlineAppstoreAdd></AiOutlineAppstoreAdd>
                       </span>
-                      Selected Classes
+                      Add Class
                     </span>
                   </Link>
                 </li>
@@ -104,19 +108,9 @@ const LeftSideNavbar = () => {
                   <Link to="">
                     <span className="flex dashboard-navlink ">
                       <span>
-                        <BsFillBookmarkCheckFill></BsFillBookmarkCheckFill>
+                        <MdClass></MdClass>
                       </span>
-                      Enrolled Classes
-                    </span>
-                  </Link>
-                </li>
-                <li className="navlink">
-                  <Link to="">
-                    <span className="flex items-center px-6 py-3  text-lg gap-x-2 ">
-                      <span>
-                        <AiOutlineHistory></AiOutlineHistory>
-                      </span>
-                      Payment History
+                      My Classes
                     </span>
                   </Link>
                 </li>
