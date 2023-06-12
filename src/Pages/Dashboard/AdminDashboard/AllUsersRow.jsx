@@ -1,16 +1,11 @@
 /* eslint-disable react/prop-types */
 import { RiAdminFill } from "react-icons/ri";
 import { FaChalkboardTeacher } from "react-icons/fa";
-import useVerifyAdmin from "../../../Hooks/useVerifyAdmin/useVerifyAdmin";
-import useVerifyInstructor from "../../../Hooks/useVerifyInstructor/useVerifyInstructor";
 import useAxiosSecure from "../../../Hooks/useAxiosSecure/useAxiosSecure";
 import Swal from "sweetalert2";
 
 const AllUsersRow = ({ index, user, refetch }) => {
   const { name, email, role, _id } = user;
-
-  const [isAdmin] = useVerifyAdmin();
-  const [isInstructor] = useVerifyInstructor();
 
   const [axiosSecure] = useAxiosSecure();
 

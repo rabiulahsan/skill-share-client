@@ -1,10 +1,9 @@
 import { AiFillStar, AiOutlineDollar } from "react-icons/ai";
-import useAuth from "../../../Hooks/useAuth/useAuth";
 import useAxiosSecure from "../../../Hooks/useAxiosSecure/useAxiosSecure";
-import useVerifyAdmin from "../../../Hooks/useVerifyAdmin/useVerifyAdmin";
+import Swal from "sweetalert2";
 
 /* eslint-disable react/prop-types */
-const AdminSingleClass = ({ cls }) => {
+const AdminSingleClass = ({ cls, refetch }) => {
   const {
     class_name,
     ins_name,
@@ -15,10 +14,39 @@ const AdminSingleClass = ({ cls }) => {
     status,
     _id,
   } = cls;
-  const [isAdmin] = useVerifyAdmin();
-  const { user } = useAuth();
+
   const [axiosSecure] = useAxiosSecure();
 
+  const handleApproved = (id) => {
+    axiosSecure
+      .patch(`/allclasses/${id}`, { status: "approved" })
+      .then((data) => {
+        if (data.data.modifiedCount) {
+          refetch();
+          Swal.fire({
+            position: "top-end",
+            icon: "success",
+            title: "Class has been approved.",
+            showConfirmButton: false,
+            timer: 1500,
+          });
+        }
+      });
+  };
+  const handleDeny = (id) => {
+    axiosSecure.patch(`/allclasses/${id}`, { status: "deny" }).then((data) => {
+      if (data.data.modifiedCount) {
+        refetch();
+        Swal.fire({
+          position: "top-end",
+          icon: "success",
+          title: "Class has been denied.",
+          showConfirmButton: false,
+          timer: 1500,
+        });
+      }
+    });
+  };
   return (
     <div className="bg-white p-5 rounded-md ">
       <img
@@ -59,10 +87,16 @@ const AdminSingleClass = ({ cls }) => {
         Status: {status}
       </p>
       <div className="flex  gap-x-4">
-        <button className="text-white bg-blue-600 font-semibold px-5 py-2 rounded hover:bg-blue-800">
+        <button
+          onClick={() => handleApproved(_id)}
+          className="text-white bg-blue-600 font-semibold px-5 py-2 rounded hover:bg-blue-800"
+        >
           Approve
         </button>
-        <button className="text-white bg-red-400 font-semibold px-5 py-2 rounded hover:bg-red-600">
+        <button
+          onClick={() => handleDeny(_id)}
+          className="text-white bg-red-400 font-semibold px-5 py-2 rounded hover:bg-red-600"
+        >
           Deny
         </button>
         <button className="text-white bg-sky-400 font-semibold px-5 py-2 rounded hover:bg-sky-600">

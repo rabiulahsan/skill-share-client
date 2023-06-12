@@ -24,7 +24,11 @@ const AllClasses = () => {
       </p>
       <div className="grid gap-12 grid-cols-1 lg:grid-cols-2 px-[8%] py-[5%] bg-sky-50 w-4/5 mx-auto">
         {allClasses.map((cls) => (
-          <AdminSingleClass key={cls._id} cls={cls}></AdminSingleClass>
+          <AdminSingleClass
+            key={cls._id}
+            cls={cls}
+            refetch={refetch}
+          ></AdminSingleClass>
         ))}
       </div>
     </div>
