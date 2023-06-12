@@ -18,9 +18,9 @@ const EnrolledClasses = () => {
     <div>
       {" "}
       <div className="px-[4%]">
-        <SectionTitle heading="Selected Classes"></SectionTitle>
+        <SectionTitle heading="Enrolled Classes"></SectionTitle>
         <p className="text-center text-2xl font-bold text-blue-900">
-          You have selected {enrolledClasses.length}
+          You have enrolled {enrolledClasses.length}
           {enrolledClasses.length > 1 ? (
             <span> classes</span>
           ) : (
