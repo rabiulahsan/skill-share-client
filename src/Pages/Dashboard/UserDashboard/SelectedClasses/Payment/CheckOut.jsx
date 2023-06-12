@@ -90,7 +90,7 @@ const CheckOut = ({ price }) => {
         <button
           className="px-6 py-2 my-5 rounded bg-blue-700 text-white hover:bg-blue-800 "
           type="submit"
-          //   disabled={!stripe || !clientSecret || processing}
+          disabled={!stripe || !clientSecret || processing}
         >
           Pay
         </button>

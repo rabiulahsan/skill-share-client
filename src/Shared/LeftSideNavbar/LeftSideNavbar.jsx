@@ -20,9 +20,6 @@ const LeftSideNavbar = () => {
   const [isAdmin] = useVerifyAdmin();
   const [isInstructor] = useVerifyInstructor();
 
-  console.log(isAdmin);
-  console.log(isInstructor);
-
   const handleLogOut = () => {
     logOut()
       .then()

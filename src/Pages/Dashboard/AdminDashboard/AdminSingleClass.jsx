@@ -28,6 +28,7 @@ const AdminSingleClass = ({ cls, refetch }) => {
 
   const [axiosSecure] = useAxiosSecure();
 
+  //approved button functional
   const handleApproved = (id) => {
     axiosSecure
       .patch(`/allclasses/${id}`, { status: "approved" })
@@ -45,6 +46,8 @@ const AdminSingleClass = ({ cls, refetch }) => {
         }
       });
   };
+
+  //deny button functional
 
   const handleDeny = (id) => {
     axiosSecure.patch(`/allclasses/${id}`, { status: "deny" }).then((data) => {
@@ -68,9 +71,13 @@ const AdminSingleClass = ({ cls, refetch }) => {
   };
 
   //submit feedback
-  const handleSubmitFeedback = (e) => {
+  const handleSubmitFeedback = (e, id) => {
     e.preventDefault();
-    console.log(_id);
+    // const form = e.target;
+    // const textarea = form.textarea.value;
+    // console.log(textarea);
+
+    console.log(id);
   };
   return (
     <div className="bg-white p-5 rounded-md ">
@@ -136,7 +143,7 @@ const AdminSingleClass = ({ cls, refetch }) => {
             Feedback
           </button>
 
-          {/* modal for feedbackj */}
+          {/* modal for feedback */}
           <dialog id="my_modal_3" className="modal">
             <div className="modal-box">
               <form method="dialog">
@@ -148,7 +155,7 @@ const AdminSingleClass = ({ cls, refetch }) => {
                 </button>
               </form>
 
-              <form onSubmit={() => handleSubmitFeedback(_id)}>
+              <form onSubmit={(event) => handleSubmitFeedback(event, _id)}>
                 <h3 className="font-bold text-lg text-center">Feedback</h3>
                 <textarea
                   className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight input input-bordered focus:outline-none focus:shadow-outline my-4"
@@ -158,7 +165,7 @@ const AdminSingleClass = ({ cls, refetch }) => {
                 <input
                   value="Submit Feedback"
                   type="submit"
-                  className="text-white bg-sky-400 font-semibold my-4  px-5 py-2 rounded hover:bg-sky-600 "
+                  className="text-white bg-sky-400 font-semibold my-4  px-5 py-2 rounded hover:bg-sky-600 cursor-pointer"
                 ></input>
               </form>
             </div>
