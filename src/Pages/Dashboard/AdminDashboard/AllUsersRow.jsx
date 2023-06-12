@@ -14,6 +14,7 @@ const AllUsersRow = ({ index, user, refetch }) => {
 
   const [axiosSecure] = useAxiosSecure();
 
+  //set role to instructor
   const handleInstructor = (id) => {
     axiosSecure.patch(`/allusers/makeinstructor/${id}`).then((data) => {
       if (data.data.modifiedCount) {
@@ -22,6 +23,22 @@ const AllUsersRow = ({ index, user, refetch }) => {
           position: "top-end",
           icon: "success",
           title: `${name} is an Instructor Now!`,
+          showConfirmButton: false,
+          timer: 1500,
+        });
+      }
+    });
+  };
+
+  //set role to admin
+  const handleAdmin = (id) => {
+    axiosSecure.patch(`/allusers/makeadmin/${id}`).then((data) => {
+      if (data.data.modifiedCount) {
+        refetch();
+        Swal.fire({
+          position: "top-end",
+          icon: "success",
+          title: `${name} is an Admin Now!`,
           showConfirmButton: false,
           timer: 1500,
         });
@@ -71,6 +88,7 @@ const AllUsersRow = ({ index, user, refetch }) => {
           </button>
         ) : (
           <button
+            onClick={() => handleAdmin(_id)}
             className="bg-indigo-900 rounded px-6 py-2 text-white font-semibold "
             title="Make Admin"
           >
