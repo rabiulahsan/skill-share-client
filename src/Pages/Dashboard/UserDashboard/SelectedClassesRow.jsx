@@ -1,12 +1,16 @@
 import Swal from "sweetalert2";
 import useAxiosSecure from "../../../Hooks/useAxiosSecure/useAxiosSecure";
 import { Link } from "react-router-dom";
+import Payment from "./SelectedClasses/Payment/Payment";
 
 /* eslint-disable react/prop-types */
 const SelectedClassesRow = ({ index, cls, refetch }) => {
   const { class_name, price, _id } = cls;
   const [axiosSecure] = useAxiosSecure();
 
+  const handlePrice = (price) => {
+    console.log(price);
+  };
   const handleDelete = (id) => {
     Swal.fire({
       title: "Are you sure?",
@@ -42,7 +46,10 @@ const SelectedClassesRow = ({ index, cls, refetch }) => {
       </td>
       <td>
         <Link to="/dashboard/payment">
-          <button className="bg-indigo-900 rounded px-6 py-2 text-white font-semibold">
+          <button
+            onClick={() => handlePrice(price)}
+            className="bg-indigo-900 rounded px-6 py-2 text-white font-semibold"
+          >
             Pay
           </button>
         </Link>

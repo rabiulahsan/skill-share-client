@@ -18,11 +18,13 @@ import InstructorClasses from "../Pages/Dashboard/InstructorDashboard/Instructor
 import AllUsers from "../Pages/Dashboard/AdminDashboard/AllUsers";
 import AllClasses from "../Pages/Dashboard/AdminDashboard/AllClasses";
 import Payment from "../Pages/Dashboard/UserDashboard/SelectedClasses/Payment/Payment";
+import ErrorPage from "../Components/ErrorPage/ErrorPage";
 
 export const router = createBrowserRouter([
   {
     path: "/",
     element: <Main></Main>,
+    errorElement: <ErrorPage></ErrorPage>,
     children: [
       {
         path: "/",
@@ -43,12 +45,14 @@ export const router = createBrowserRouter([
   {
     path: "/login",
     element: <LoginLayout></LoginLayout>,
+    errorElement: <ErrorPage></ErrorPage>,
   },
 
   // layout for signup page
   {
     path: "/signup",
     element: <SigninLayout></SigninLayout>,
+    errorElement: <ErrorPage></ErrorPage>,
   },
 
   //layout for dashboard
@@ -59,6 +63,7 @@ export const router = createBrowserRouter([
         <DasboardLayout></DasboardLayout>
       </PrivateRoute>
     ),
+    errorElement: <ErrorPage></ErrorPage>,
     children: [
       {
         path: "/dashboard",
