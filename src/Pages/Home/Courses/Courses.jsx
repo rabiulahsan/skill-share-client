@@ -6,7 +6,7 @@ const Courses = () => {
   return (
     <div className="">
       <SectionTitle heading="Our Service"></SectionTitle>
-      <div className=" my-8 lg:my-5 mx-[8%] p-[3%] bg-sky-100 flex flex-col  gap-y-4 lg:flex lg:justify-around items-center">
+      <div className=" my-8 lg:my-5 lg:mb-[5%] mx-[8%] p-[3%] bg-sky-100 flex flex-col  gap-y-4 lg:flex-row lg:justify-around items-center">
         <div className="flex items-center">
           <span className="bg-white p-4 mr-5 rounded text-5xl text-blue-600">
             <BsPeople></BsPeople>

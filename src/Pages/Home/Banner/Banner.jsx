@@ -18,7 +18,7 @@ const Banner = () => {
         className="mySwiper h-[700px]"
       >
         <SwiperSlide>
-          <div className="flex px-5 flex-col-reverse lg:flex items-center lg:justify-start">
+          <div className="flex px-5 flex-col-reverse lg:flex-row items-center lg:justify-start">
             <div className="w-full text-center lg:text-left lg:w-1/2">
               <p className="text-2xl  lg:text-6xl font-bold leading-tight mb-5 lg:mb-8">
                 Getting{" "}
@@ -44,7 +44,7 @@ const Banner = () => {
           </div>
         </SwiperSlide>
         <SwiperSlide>
-          <div className="flex px-5 flex-col-reverse lg:flex items-center lg:justify-start">
+          <div className="flex px-5 flex-col-reverse lg:flex-row items-center lg:justify-start">
             <div className="w-full text-center lg:text-left lg:w-1/2">
               <p className="text-2xl  lg:text-6xl font-bold leading-tight mb-5 lg:mb-8">
                 We <span className="text-blue-600 ">Innovate</span> <br />{" "}
@@ -69,7 +69,7 @@ const Banner = () => {
           </div>
         </SwiperSlide>
         <SwiperSlide>
-          <div className="flex px-5 flex-col-reverse lg:flex items-center lg:justify-start">
+          <div className="flex px-5 flex-col-reverse lg:flex-row items-center lg:justify-start">
             <div className="w-full text-center lg:text-left lg:w-1/2">
               <p className="text-2xl  lg:text-6xl font-bold leading-tight mb-5 lg:mb-8">
                 Enhance your <br />{" "}
