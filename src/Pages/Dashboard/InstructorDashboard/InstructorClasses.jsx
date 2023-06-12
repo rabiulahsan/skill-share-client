@@ -2,6 +2,7 @@ import { useQuery } from "@tanstack/react-query";
 import SectionTitle from "../../../Components/SectionTitle/SectionTitle";
 import useAuth from "../../../Hooks/useAuth/useAuth";
 import useAxiosSecure from "../../../Hooks/useAxiosSecure/useAxiosSecure";
+import InstructorClassesRow from "./InstructorClassesRow";
 
 const InstructorClasses = () => {
   const { user } = useAuth();
@@ -27,6 +28,33 @@ const InstructorClasses = () => {
           <span> class</span>
         )}
       </p>
+      <div className="w-full my-[5%]">
+        <table className=" w-full">
+          {/* table header  */}
+          <thead className="border-b border-b-gray-500 bg-gray-100 ">
+            <tr className="text-center font-bold text-xl text-black ">
+              <th className="py-5">#</th>
+              <th>Name</th>
+              <th>Enrolled</th>
+              <th>Status</th>
+              <th>Feedback</th>
+              <th>Update</th>
+            </tr>
+          </thead>
+
+          {/* table body by mapping  */}
+          <tbody>
+            {instructorClasses.map((cls, index) => (
+              <InstructorClassesRow
+                key={cls._id}
+                index={index}
+                cls={cls}
+                refetch={refetch}
+              ></InstructorClassesRow>
+            ))}
+          </tbody>
+        </table>
+      </div>
     </div>
   );
 };
