@@ -18,9 +18,9 @@ const Banner = () => {
         className="mySwiper h-[700px]"
       >
         <SwiperSlide>
-          <div className="flex items-center justify-start">
-            <div className="w-1/2">
-              <p className=" text-6xl font-bold leading-tight mb-8">
+          <div className="flex px-5 flex-col-reverse lg:flex items-center lg:justify-start">
+            <div className="w-full text-center lg:text-left lg:w-1/2">
+              <p className="text-2xl  lg:text-6xl font-bold leading-tight mb-5 lg:mb-8">
                 Getting{" "}
                 <span className="text-blue-600 ">Quality Education</span> is Now
                 More <span className="text-blue-600 ">Easy</span>{" "}
@@ -31,16 +31,22 @@ const Banner = () => {
                 better and get a good job. <br /> Just stay with us.
               </p>
               <div className="flex">
-                <button className="blue-btn hover:bg-blue-800">Enroll</button>
+                <button className="blue-btn hover:bg-blue-800 mx-auto lg:mx-0">
+                  Enroll
+                </button>
               </div>
             </div>
-            <img className="h-[500px] my-[5%]" src={slide1} alt="" />
+            <img
+              className="h-[300px] lg:h-[500px] my-[5%]"
+              src={slide1}
+              alt=""
+            />
           </div>
         </SwiperSlide>
         <SwiperSlide>
-          <div className="flex items-center justify-start">
-            <div className="w-1/2">
-              <p className=" text-6xl font-bold leading-tight mb-8">
+          <div className="flex px-5 flex-col-reverse lg:flex items-center lg:justify-start">
+            <div className="w-full text-center lg:text-left lg:w-1/2">
+              <p className="text-2xl  lg:text-6xl font-bold leading-tight mb-5 lg:mb-8">
                 We <span className="text-blue-600 ">Innovate</span> <br />{" "}
                 Learning Processes
               </p>
@@ -50,16 +56,22 @@ const Banner = () => {
                 better and get a good job. <br /> Just stay with us.
               </p>
               <div className="flex">
-                <button className="blue-btn hover:bg-blue-800">Enroll</button>
+                <button className="blue-btn hover:bg-blue-800 mx-auto lg:mx-0">
+                  Enroll
+                </button>
               </div>
             </div>
-            <img className="h-[500px] my-[5%]" src={slide2} alt="" />
+            <img
+              className="h-[300px] lg:h-[500px] my-[5%]"
+              src={slide2}
+              alt=""
+            />
           </div>
         </SwiperSlide>
         <SwiperSlide>
-          <div className="flex items-center justify-start">
-            <div className="w-1/2">
-              <p className=" text-6xl font-bold leading-tight mb-8">
+          <div className="flex px-5 flex-col-reverse lg:flex items-center lg:justify-start">
+            <div className="w-full text-center lg:text-left lg:w-1/2">
+              <p className="text-2xl  lg:text-6xl font-bold leading-tight mb-5 lg:mb-8">
                 Enhance your <br />{" "}
                 <span className="text-blue-600 ">Skills</span> Get the <br />{" "}
                 <span className="text-blue-600 ">Dream Job</span>{" "}
@@ -70,10 +82,16 @@ const Banner = () => {
                 better and get a good job. <br /> Just stay with us.
               </p>
               <div className="flex">
-                <button className="blue-btn hover:bg-blue-800">Enroll</button>
+                <button className="blue-btn hover:bg-blue-800 mx-auto lg:mx-0">
+                  Enroll
+                </button>
               </div>
             </div>
-            <img className="h-[500px] my-[5%]" src={slide3} alt="" />
+            <img
+              className="h-[300px] lg:h-[500px] my-[5%]"
+              src={slide3}
+              alt=""
+            />
           </div>
         </SwiperSlide>
       </Swiper>

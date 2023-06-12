@@ -5,8 +5,8 @@ const About = () => {
   return (
     <>
       <SectionTitle heading="About Us"></SectionTitle>
-      <div className="flex justify-around items-center px-[8%]">
-        <p className="w-1/3 text-[#757575]">
+      <div className="flex flex-col-reverse lg:flex lg:justify-around items-center px-[8%]">
+        <p className="w-full lg:w-1/3 text-[#757575]">
           Discover limitless learning possibilities with our e-learning
           platform. We offer a wide range of expert-led courses in programming,
           web development, data science, design, and more. Learn at your own
