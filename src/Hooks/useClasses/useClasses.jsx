@@ -1,15 +1,17 @@
 import { useEffect, useState } from "react";
 
 const useClasses = () => {
-  const [classes, setClasses] = useState([]);
+  const [allClasses, setAllClasses] = useState([]);
 
   useEffect(() => {
     fetch("http://localhost:5000/classes")
       .then((res) => res.json())
       .then((data) => {
-        setClasses(data);
+        setAllClasses(data);
       });
   }, []);
+
+  const classes = allClasses.filter((cls) => cls.status === "approved");
   return [classes];
 };
 
