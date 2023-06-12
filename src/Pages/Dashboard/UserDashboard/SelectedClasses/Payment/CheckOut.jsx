@@ -4,7 +4,7 @@ import useAuth from "../../../../../Hooks/useAuth/useAuth";
 import useAxiosSecure from "../../../../../Hooks/useAxiosSecure/useAxiosSecure";
 import { useEffect, useState } from "react";
 
-const CheckOut = ({ price }) => {
+const CheckOut = ({ price, class_name, clsId, id }) => {
   const stripe = useStripe();
   const elements = useElements();
   const { user } = useAuth();
@@ -65,6 +65,26 @@ const CheckOut = ({ price }) => {
 
     console.log("payment intent", paymentIntent);
     setProcessing(false);
+
+    if (paymentIntent.status === "succeeded") {
+      setTransactionId(paymentIntent.id);
+      // save payment information to the server
+      const payment = {
+        email: user?.email,
+        transactionId: paymentIntent.id,
+        class_name,
+        selectedId: id,
+        clsId,
+        price,
+        date: new Date(),
+      };
+      axiosSecure.post("/payments", payment).then((res) => {
+        console.log(res.data);
+        if (res.data.result.insertedId) {
+          // display confirm
+        }
+      });
+    }
   };
   return (
     <>

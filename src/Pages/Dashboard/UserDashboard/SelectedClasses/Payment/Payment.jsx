@@ -17,7 +17,7 @@ const Payment = () => {
 
   //get the price amount
   let price = thisClass[0]?.price;
-
+  console.log(thisClass[0]);
   return (
     <div>
       <SectionTitle heading="Payment Page"></SectionTitle>
@@ -25,7 +25,14 @@ const Payment = () => {
         The course fee is {price}$
       </p>
       <Elements stripe={stripePromise}>
-        <CheckOut price={price}> </CheckOut>
+        <CheckOut
+          id={id}
+          price={price}
+          class_name={thisClass[0]?.class_name}
+          clsId={thisClass[0]?.clsId}
+        >
+          {" "}
+        </CheckOut>
       </Elements>
     </div>
   );
