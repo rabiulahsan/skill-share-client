@@ -3,6 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 import useAuth from "../../Hooks/useAuth/useAuth";
 import GoogleSignin from "../../Shared/GoogleSignin/GoogleSignin";
+import { useState } from "react";
 
 const Signup = () => {
   const {
@@ -13,38 +14,49 @@ const Signup = () => {
   } = useForm();
   const { createUser, updateUserProfile } = useAuth();
   const navigate = useNavigate();
+  const [error, seterror] = useState("");
 
   const onSubmit = (data) => {
-    createUser(data.email, data.password).then((result) => {
-      const loggedUser = result.user;
-      console.log(loggedUser);
-      updateUserProfile(data.name, data.photoURL)
-        .then(() => {
-          const saveUser = { name: data.name, email: data.email, role: "user" };
-          fetch("http://localhost:5000/users", {
-            method: "POST",
-            headers: {
-              "content-type": "application/json",
-            },
-            body: JSON.stringify(saveUser),
+    // confirm password condition
+    if (data.password === data.confirmPassword) {
+      createUser(data.email, data.password).then((result) => {
+        const loggedUser = result.user;
+        console.log(loggedUser);
+        updateUserProfile(data.name, data.photoURL)
+          .then(() => {
+            const saveUser = {
+              name: data.name,
+              email: data.email,
+              role: "user",
+            };
+            fetch("http://localhost:5000/users", {
+              method: "POST",
+              headers: {
+                "content-type": "application/json",
+              },
+              body: JSON.stringify(saveUser),
+            })
+              .then((res) => res.json())
+              .then((data) => {
+                if (data.insertedId) {
+                  reset();
+                  Swal.fire({
+                    position: "top-end",
+                    icon: "success",
+                    title: "User created successfully.",
+                    showConfirmButton: false,
+                    timer: 1500,
+                  });
+                  navigate("/");
+                }
+              });
           })
-            .then((res) => res.json())
-            .then((data) => {
-              if (data.insertedId) {
-                reset();
-                Swal.fire({
-                  position: "top-end",
-                  icon: "success",
-                  title: "User created successfully.",
-                  showConfirmButton: false,
-                  timer: 1500,
-                });
-                navigate("/");
-              }
-            });
-        })
-        .catch((error) => console.log(error));
-    });
+          .catch((error) => console.log(error));
+      });
+    } else {
+      seterror("Both password dont match");
+      return;
+    }
   };
 
   return (
@@ -132,6 +144,42 @@ const Signup = () => {
                 </p>
               )}
             </div>
+            <div className="form-control">
+              <label className="label block text-gray-700 text-sm font-bold">
+                <span className="label-text">Confirm Password</span>
+              </label>
+              <input
+                type="password"
+                {...register("confirmPassword", {
+                  required: true,
+                  minLength: 6,
+                  maxLength: 20,
+                  pattern: /(?=.*[A-Z])(?=.*[!@#$&*])(?=.*[0-9])(?=.*[a-z])/,
+                })}
+                placeholder="confirm password"
+                className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight input input-bordered focus:outline-none focus:shadow-outline"
+              />
+              {errors.confirmPassword?.type === "required" && (
+                <p className="text-red-600">Password is required</p>
+              )}
+              {errors.confirmPassword?.type === "minLength" && (
+                <p className="text-red-600">Password must be 6 characters</p>
+              )}
+              {errors.confirmPassword?.type === "maxLength" && (
+                <p className="text-red-600">
+                  Password must be less than 20 characters
+                </p>
+              )}
+              {errors.confirmPassword?.type === "pattern" && (
+                <p className="text-red-600">
+                  Password must have one Uppercase one lower case, one number
+                  and one special character.
+                </p>
+              )}
+            </div>
+
+            <p className="text-red-600 my-5 text-lg">{error}</p>
+
             <div className="form-control mt-6">
               <input
                 className="cursor-pointer text-center bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
