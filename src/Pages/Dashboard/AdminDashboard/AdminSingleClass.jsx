@@ -61,6 +61,14 @@ const AdminSingleClass = ({ cls, refetch }) => {
       }
     });
   };
+
+  //feedback for pending status
+  const handleFeedback = () => {
+    Swal.fire("Atfirst Approved or Deny");
+  };
+
+  //submit feedback
+  const handleSubmitFeedback = (id) => {};
   return (
     <div className="bg-white p-5 rounded-md ">
       <img
@@ -107,20 +115,51 @@ const AdminSingleClass = ({ cls, refetch }) => {
           <button
             disabled
             onClick={() => handleApproved(_id)}
-            className="text-white bg-gray-400 font-semibold px-5 py-2 rounded hover:bg-blue-800"
+            className="text-white bg-gray-400 font-semibold px-5 py-2 rounded "
           >
             Approve
           </button>
           <button
             disabled
             onClick={() => handleDeny(_id)}
-            className="text-white bg-gray-400 font-semibold px-5 py-2 rounded hover:bg-red-600"
+            className="text-white bg-gray-400 font-semibold px-5 py-2 rounded "
           >
             Deny
           </button>
-          <button className="text-white bg-sky-400 font-semibold px-5 py-2 rounded hover:bg-sky-600">
+          <button
+            onClick={() => window.my_modal_3.showModal()}
+            className="text-white bg-sky-400 font-semibold px-5 py-2 rounded hover:bg-sky-600"
+          >
             Feedback
           </button>
+
+          {/* modal for feedbackj */}
+          <dialog id="my_modal_3" className="modal">
+            <form
+              onSubmit={() => handleSubmitFeedback(_id)}
+              method="dialog"
+              className="modal-box"
+            >
+              <button
+                htmlFor="my-modal-3"
+                className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2"
+              >
+                ✕
+              </button>
+              <h3 className="font-bold text-lg text-center">Feedback</h3>
+              <textarea
+                className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight input input-bordered focus:outline-none focus:shadow-outline my-4"
+                placeholder="Feedback"
+                rows={30}
+              ></textarea>
+              <button
+                type="submit"
+                className="text-white bg-sky-400 font-semibold my-4  px-5 py-2 rounded hover:bg-sky-600 w-full"
+              >
+                Submit Feedback
+              </button>
+            </form>
+          </dialog>
         </div>
       ) : (
         <div className="flex  gap-x-4">
@@ -136,7 +175,10 @@ const AdminSingleClass = ({ cls, refetch }) => {
           >
             Deny
           </button>
-          <button className="text-white bg-sky-400 font-semibold px-5 py-2 rounded hover:bg-sky-600">
+          <button
+            onClick={handleFeedback}
+            className="text-white bg-sky-400 font-semibold px-5 py-2 rounded hover:bg-sky-600"
+          >
             Feedback
           </button>
         </div>
