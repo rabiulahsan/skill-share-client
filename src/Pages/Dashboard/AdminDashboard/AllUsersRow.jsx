@@ -3,12 +3,31 @@ import { RiAdminFill } from "react-icons/ri";
 import { FaChalkboardTeacher } from "react-icons/fa";
 import useVerifyAdmin from "../../../Hooks/useVerifyAdmin/useVerifyAdmin";
 import useVerifyInstructor from "../../../Hooks/useVerifyInstructor/useVerifyInstructor";
+import useAxiosSecure from "../../../Hooks/useAxiosSecure/useAxiosSecure";
+import Swal from "sweetalert2";
 
 const AllUsersRow = ({ index, user, refetch }) => {
-  const { name, email, role } = user;
+  const { name, email, role, _id } = user;
 
   const [isAdmin] = useVerifyAdmin();
   const [isInstructor] = useVerifyInstructor();
+
+  const [axiosSecure] = useAxiosSecure();
+
+  const handleInstructor = (id) => {
+    axiosSecure.patch(`/allusers/makeinstructor/${id}`).then((data) => {
+      if (data.data.modifiedCount) {
+        refetch();
+        Swal.fire({
+          position: "top-end",
+          icon: "success",
+          title: `${name} is an Instructor Now!`,
+          showConfirmButton: false,
+          timer: 1500,
+        });
+      }
+    });
+  };
   return (
     <tr className="hover:bg-gray-100 w-full text-center  ">
       <td className="py-5 font-semibold">{index + 1}</td>
@@ -23,12 +42,13 @@ const AllUsersRow = ({ index, user, refetch }) => {
             className="bg-gray-400 rounded px-6 py-2 text-white font-semibold"
             title="Already a Instructor"
           >
-            <span className="text-white text-xl disabled">
+            <span className="text-white text-xl ">
               <FaChalkboardTeacher></FaChalkboardTeacher>
             </span>
           </button>
         ) : (
           <button
+            onClick={() => handleInstructor(_id)}
             className="bg-sky-400 rounded px-6 py-2 text-white font-semibold"
             title="Make Instructor"
           >
