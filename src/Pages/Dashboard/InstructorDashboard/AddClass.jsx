@@ -16,20 +16,20 @@ const AddClass = () => {
   const { user } = useAuth();
 
   const onSubmit = (data) => {
-    const { image, class_name, ins_name, ins_email, available_seats, price } =
-      data;
+    const { image, class_name, ins_name, email, available_seats, price } = data;
     const newClass = {
       image,
       class_name,
       ins_name,
-      ins_email,
+      email,
       available_seats: parseInt(available_seats),
       price: parseFloat(price),
       status: "pending",
       ratings: parseFloat((Math.random() * 1 + 4).toFixed(1)),
+      total_enrolled: parseInt(0),
     };
     console.log(newClass);
-    axiosSecure.post("/addclass", newClass).then((data) => {
+    axiosSecure.post("/classes", newClass).then((data) => {
       if (data.data.insertedId) {
         reset();
         Swal.fire({
@@ -83,7 +83,7 @@ const AddClass = () => {
             <input
               type="text"
               placeholder="Display Image URL"
-              {...register("image", { required: true, maxLength: 120 })}
+              {...register("image", { required: true, maxLength: 300 })}
               className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight input input-bordered focus:outline-none focus:shadow-outline "
             />
             {errors.image && (
@@ -99,7 +99,7 @@ const AddClass = () => {
               type="email"
               placeholder="Instructor Email"
               value={user?.email}
-              {...register("ins_email", { required: true, maxLength: 120 })}
+              {...register("email", { required: true, maxLength: 120 })}
               className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight input input-bordered focus:outline-none focus:shadow-outline "
             />
           </div>
