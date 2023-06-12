@@ -59,7 +59,9 @@ const AuthProvider = ({ children }) => {
       if (loggedUser) {
         //using axios for fetch
         axios
-          .post("http://localhost:5000/jwt", { email: loggedUser.email })
+          .post("https://skill-builder-server.vercel.app/jwt", {
+            email: loggedUser.email,
+          })
           .then((data) => {
             localStorage.setItem("access-token", data.data.token);
             setLoading(false);

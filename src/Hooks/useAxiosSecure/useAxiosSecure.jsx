@@ -5,7 +5,7 @@ import axios from "axios";
 
 //create baseURL
 const axiosSecure = axios.create({
-  baseURL: "http://localhost:5000",
+  baseURL: "https://skill-builder-server.vercel.app",
 });
 
 const useAxiosSecure = () => {

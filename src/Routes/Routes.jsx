@@ -79,7 +79,9 @@ export const router = createBrowserRouter([
         path: "/dashboard/selected-classes/:id",
         element: <Payment></Payment>,
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/dashboard/payment/${params.id}`),
+          fetch(
+            `https://skill-builder-server.vercel.app/dashboard/payment/${params.id}`
+          ),
       },
       {
         path: "/dashboard/enrolled",

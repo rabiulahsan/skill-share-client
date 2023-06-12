@@ -4,7 +4,7 @@ const UseSelectedClasses = () => {
   const [allSelectedClasses, setAllSelectedClasses] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:5000/selectedclasses")
+    fetch("https://skill-builder-server.vercel.app/selectedclasses")
       .then((res) => res.json())
       .then((data) => {
         setAllSelectedClasses(data);

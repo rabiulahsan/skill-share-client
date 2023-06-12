@@ -29,7 +29,7 @@ const Signup = () => {
               email: data.email,
               role: "user",
             };
-            fetch("http://localhost:5000/users", {
+            fetch("https://skill-builder-server.vercel.app/users", {
               method: "POST",
               headers: {
                 "content-type": "application/json",
