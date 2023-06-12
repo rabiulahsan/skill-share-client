@@ -17,6 +17,7 @@ import AddClass from "../Pages/Dashboard/InstructorDashboard/AddClass";
 import InstructorClasses from "../Pages/Dashboard/InstructorDashboard/InstructorClasses";
 import AllUsers from "../Pages/Dashboard/AdminDashboard/AllUsers";
 import AllClasses from "../Pages/Dashboard/AdminDashboard/AllClasses";
+import Payment from "../Pages/Dashboard/UserDashboard/SelectedClasses/Payment/Payment";
 
 export const router = createBrowserRouter([
   {
@@ -66,6 +67,10 @@ export const router = createBrowserRouter([
       {
         path: "/dashboard/selected-classes",
         element: <SelectedClasses></SelectedClasses>,
+      },
+      {
+        path: "/dashboard/payment",
+        element: <Payment></Payment>,
       },
 
       {

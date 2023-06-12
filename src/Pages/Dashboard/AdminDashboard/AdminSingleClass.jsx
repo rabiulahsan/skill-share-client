@@ -68,7 +68,10 @@ const AdminSingleClass = ({ cls, refetch }) => {
   };
 
   //submit feedback
-  const handleSubmitFeedback = (id) => {};
+  const handleSubmitFeedback = (e) => {
+    e.preventDefault();
+    console.log(_id);
+  };
   return (
     <div className="bg-white p-5 rounded-md ">
       <img
@@ -135,30 +138,30 @@ const AdminSingleClass = ({ cls, refetch }) => {
 
           {/* modal for feedbackj */}
           <dialog id="my_modal_3" className="modal">
-            <form
-              onSubmit={() => handleSubmitFeedback(_id)}
-              method="dialog"
-              className="modal-box"
-            >
-              <button
-                htmlFor="my-modal-3"
-                className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2"
-              >
-                ✕
-              </button>
-              <h3 className="font-bold text-lg text-center">Feedback</h3>
-              <textarea
-                className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight input input-bordered focus:outline-none focus:shadow-outline my-4"
-                placeholder="Feedback"
-                rows={30}
-              ></textarea>
-              <button
-                type="submit"
-                className="text-white bg-sky-400 font-semibold my-4  px-5 py-2 rounded hover:bg-sky-600 w-full"
-              >
-                Submit Feedback
-              </button>
-            </form>
+            <div className="modal-box">
+              <form method="dialog">
+                <button
+                  htmlFor="my-modal-3"
+                  className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2"
+                >
+                  ✕
+                </button>
+              </form>
+
+              <form onSubmit={() => handleSubmitFeedback(_id)}>
+                <h3 className="font-bold text-lg text-center">Feedback</h3>
+                <textarea
+                  className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight input input-bordered focus:outline-none focus:shadow-outline my-4"
+                  placeholder="Feedback"
+                  rows={30}
+                ></textarea>
+                <input
+                  value="Submit Feedback"
+                  type="submit"
+                  className="text-white bg-sky-400 font-semibold my-4  px-5 py-2 rounded hover:bg-sky-600 "
+                ></input>
+              </form>
+            </div>
           </dialog>
         </div>
       ) : (

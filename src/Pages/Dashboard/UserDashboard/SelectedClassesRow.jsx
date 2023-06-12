@@ -1,5 +1,6 @@
 import Swal from "sweetalert2";
 import useAxiosSecure from "../../../Hooks/useAxiosSecure/useAxiosSecure";
+import { Link } from "react-router-dom";
 
 /* eslint-disable react/prop-types */
 const SelectedClassesRow = ({ index, cls, refetch }) => {
@@ -40,9 +41,11 @@ const SelectedClassesRow = ({ index, cls, refetch }) => {
         </button>
       </td>
       <td>
-        <button className="bg-indigo-900 rounded px-6 py-2 text-white font-semibold">
-          Pay
-        </button>
+        <Link to="/dashboard/payment">
+          <button className="bg-indigo-900 rounded px-6 py-2 text-white font-semibold">
+            Pay
+          </button>
+        </Link>
       </td>
     </tr>
   );
