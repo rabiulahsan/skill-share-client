@@ -54,17 +54,7 @@ const LeftSideNavbar = () => {
                   </ActiveDashboardLink>
                 </li>
                 <li className="navlink hover:text-sky-300 ">
-                  <ActiveDashboardLink to="/">
-                    <span className="flex dashboard-navlink ">
-                      <span>
-                        <GiTeacher></GiTeacher>
-                      </span>
-                      Instructors
-                    </span>
-                  </ActiveDashboardLink>
-                </li>
-                <li className="navlink hover:text-sky-300 ">
-                  <ActiveDashboardLink to="">
+                  <ActiveDashboardLink to="/dashboard/allclasses">
                     <span className="flex dashboard-navlink ">
                       <span>
                         <MdClass></MdClass>
@@ -74,12 +64,12 @@ const LeftSideNavbar = () => {
                   </ActiveDashboardLink>
                 </li>
                 <li className="navlink hover:text-sky-300 ">
-                  <ActiveDashboardLink to="">
+                  <ActiveDashboardLink to="/dashboard/allusers">
                     <span className="flex items-center px-6 py-3  text-lg gap-x-2 ">
                       <span>
                         <FiUsers></FiUsers>
                       </span>
-                      users
+                      Users
                     </span>
                   </ActiveDashboardLink>
                 </li>

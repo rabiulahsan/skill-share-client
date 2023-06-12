@@ -10,7 +10,7 @@ const ShowAllClasses = () => {
       <SectionTitle heading="All Classes"></SectionTitle>
       <div className="grid gap-12 grid-cols-1 lg:grid-cols-3 px-[8%] py-[5%] bg-sky-50">
         {classes.map((cls) => (
-          <SingleClass key={cls.class_name} cls={cls}></SingleClass>
+          <SingleClass key={cls._id} cls={cls}></SingleClass>
         ))}
       </div>
     </>

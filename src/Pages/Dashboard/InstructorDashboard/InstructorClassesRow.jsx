@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
 const InstructorClassesRow = ({ index, cls, refetch }) => {
-  const { class_name, price, _id, total_enrolled, status } = cls;
+  const { class_name, _id, total_enrolled, status } = cls;
 
   return (
     <tr className="hover:bg-gray-100 w-full text-center  ">
