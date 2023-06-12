@@ -23,4 +23,8 @@
     @apply text-sky-300
 }
 
+.nav-option-style{
+    @apply my-2 hover:text-blue-600
+}
+
 
