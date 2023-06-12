@@ -130,7 +130,7 @@ const LeftSideNavbar = () => {
                   </ActiveDashboardLink>
                 </li>
                 <li className="navlink hover:text-sky-300 ">
-                  <ActiveDashboardLink to="">
+                  <ActiveDashboardLink to="/dashboard/enrolled">
                     <span className="flex dashboard-navlink ">
                       <span>
                         <BsFillBookmarkCheckFill></BsFillBookmarkCheckFill>
@@ -140,7 +140,7 @@ const LeftSideNavbar = () => {
                   </ActiveDashboardLink>
                 </li>
                 <li className="navlink hover:text-sky-300 ">
-                  <ActiveDashboardLink to="">
+                  <ActiveDashboardLink to="/dashboard/paymenthistory">
                     <span className="flex items-center px-6 py-3  text-lg gap-x-2 ">
                       <span>
                         <AiOutlineHistory></AiOutlineHistory>

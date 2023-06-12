@@ -19,6 +19,8 @@ import AllUsers from "../Pages/Dashboard/AdminDashboard/AllUsers";
 import AllClasses from "../Pages/Dashboard/AdminDashboard/AllClasses";
 import Payment from "../Pages/Dashboard/UserDashboard/SelectedClasses/Payment/Payment";
 import ErrorPage from "../Components/ErrorPage/ErrorPage";
+import EnrolledClasses from "../Pages/Dashboard/UserDashboard/EnrolledClasses/EnrolledClasses";
+import PaymentHistory from "../Pages/Dashboard/UserDashboard/PaymentHistory/PaymentHistory";
 
 export const router = createBrowserRouter([
   {
@@ -78,6 +80,14 @@ export const router = createBrowserRouter([
         element: <Payment></Payment>,
         loader: ({ params }) =>
           fetch(`http://localhost:5000/dashboard/payment/${params.id}`),
+      },
+      {
+        path: "/dashboard/enrolled",
+        element: <EnrolledClasses></EnrolledClasses>,
+      },
+      {
+        path: "/dashboard/paymenthistory",
+        element: <PaymentHistory></PaymentHistory>,
       },
 
       {
