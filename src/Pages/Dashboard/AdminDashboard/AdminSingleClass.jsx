@@ -1,6 +1,7 @@
 import { AiFillStar, AiOutlineDollar } from "react-icons/ai";
 import useAxiosSecure from "../../../Hooks/useAxiosSecure/useAxiosSecure";
 import Swal from "sweetalert2";
+import { useEffect, useState } from "react";
 
 /* eslint-disable react/prop-types */
 const AdminSingleClass = ({ cls, refetch }) => {
@@ -15,6 +16,16 @@ const AdminSingleClass = ({ cls, refetch }) => {
     _id,
   } = cls;
 
+  const [approved, setApproved] = useState(true);
+  const [deny, setDeny] = useState(false);
+
+  useEffect(() => {
+    if (status === "pending") {
+      setApproved(false);
+      setDeny(false);
+    }
+  }, [status]);
+
   const [axiosSecure] = useAxiosSecure();
 
   const handleApproved = (id) => {
@@ -23,6 +34,7 @@ const AdminSingleClass = ({ cls, refetch }) => {
       .then((data) => {
         if (data.data.modifiedCount) {
           refetch();
+          setApproved(true);
           Swal.fire({
             position: "top-end",
             icon: "success",
@@ -33,10 +45,12 @@ const AdminSingleClass = ({ cls, refetch }) => {
         }
       });
   };
+
   const handleDeny = (id) => {
     axiosSecure.patch(`/allclasses/${id}`, { status: "deny" }).then((data) => {
       if (data.data.modifiedCount) {
         refetch();
+        setDeny(true);
         Swal.fire({
           position: "top-end",
           icon: "success",
@@ -86,23 +100,47 @@ const AdminSingleClass = ({ cls, refetch }) => {
       >
         Status: {status}
       </p>
-      <div className="flex  gap-x-4">
-        <button
-          onClick={() => handleApproved(_id)}
-          className="text-white bg-blue-600 font-semibold px-5 py-2 rounded hover:bg-blue-800"
-        >
-          Approve
-        </button>
-        <button
-          onClick={() => handleDeny(_id)}
-          className="text-white bg-red-400 font-semibold px-5 py-2 rounded hover:bg-red-600"
-        >
-          Deny
-        </button>
-        <button className="text-white bg-sky-400 font-semibold px-5 py-2 rounded hover:bg-sky-600">
-          Feedback
-        </button>
-      </div>
+
+      {/* button for set class status  */}
+      {approved || deny ? (
+        <div className="flex  gap-x-4">
+          <button
+            disabled
+            onClick={() => handleApproved(_id)}
+            className="text-white bg-gray-400 font-semibold px-5 py-2 rounded hover:bg-blue-800"
+          >
+            Approve
+          </button>
+          <button
+            disabled
+            onClick={() => handleDeny(_id)}
+            className="text-white bg-gray-400 font-semibold px-5 py-2 rounded hover:bg-red-600"
+          >
+            Deny
+          </button>
+          <button className="text-white bg-sky-400 font-semibold px-5 py-2 rounded hover:bg-sky-600">
+            Feedback
+          </button>
+        </div>
+      ) : (
+        <div className="flex  gap-x-4">
+          <button
+            onClick={() => handleApproved(_id)}
+            className="text-white bg-blue-600 font-semibold px-5 py-2 rounded hover:bg-blue-800"
+          >
+            Approve
+          </button>
+          <button
+            onClick={() => handleDeny(_id)}
+            className="text-white bg-red-400 font-semibold px-5 py-2 rounded hover:bg-red-600"
+          >
+            Deny
+          </button>
+          <button className="text-white bg-sky-400 font-semibold px-5 py-2 rounded hover:bg-sky-600">
+            Feedback
+          </button>
+        </div>
+      )}
     </div>
   );
 };
